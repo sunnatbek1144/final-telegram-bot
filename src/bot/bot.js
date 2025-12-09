@@ -1,31 +1,27 @@
-import onStart from "..onStart.js"
 import { config } from 'dotenv'
 import TelegramBot from 'node-telegram-bot-api'
-import onProfile from "../handlers/onProfile.js"
+import onProfile from "./handlers/onProfile.js"
+import onStart from "./handlers/onStart.js"
 
 config();
 
 const token = process.env.BOT_TOKEN;
-const bot = new TelegramBot(token, {polling:true})
+export const bot = new TelegramBot(token, {polling:true})
 
 bot.on("message", (msg) => {
+	const chatId = msg.chat.id
+	const text = msg.text
+	const firstName = msg.chat.first_name
 
-	return onStart(msg);
-	
-	if (text == "/profile"){
-		return onProfile(msg);
+	switch (text) {
+		case "/start":
+			onStart(msg)
+			break;
+	    case "/profile":
+			onProfile()
+			break;
+		default:
+			break;
 	}
-
-
-
-	return bot.sendMessage(chatid, `Kutilmagan xatolik... iltimos /start  bosing!`)
 })
-
-
-
-
-
-
-
-
 console.log("bot ishga tshdi");

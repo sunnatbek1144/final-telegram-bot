@@ -1,5 +1,5 @@
-import { bot } from "../bot/bot.js"
-import User from "../models/User.js"
+import { bot } from "../bot.js"
+import User from '../../models/USer.js';
 
 
 async function onProfile(msg) {

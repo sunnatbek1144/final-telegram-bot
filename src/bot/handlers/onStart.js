@@ -1,12 +1,11 @@
-import { bot } from "../bot/bot.js"
-import User from "../models/User.js"
+import User from '../../models/USer.js'
+import { bot } from "../bot.js"
 
+async function onStart(msg) {
+    const chatId = msg.chat.id;
+    const firstname = msg.chat.first_name;
+    const existingUser = await User.findOne({ chatId:chatId });
 
- async function onStart(msg) {
-	const chatId = msg.chat.id;
-	const firstname = msg.chat.first_name;
- 
-  const existingUser = await User.findOne({ chatId:chatId });
 
 	if (existingUser == null) {
 		const newUser = new User({
@@ -21,8 +20,6 @@ import User from "../models/User.js"
 	}
  	
 	console.log(existingUser);
-
-
 	bot.sendMessage(chatId, `Assolomu Aleykum, ${firstname}`)
 	
 }
