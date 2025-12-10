@@ -1,27 +1,11 @@
 import User from '../../models/USer.js'
 import { bot } from "../bot.js"
 
-async function onStart(msg) {
-    const chatId = msg.chat.id;
-    const firstname = msg.chat.first_name;
-    const existingUser = await User.findOne({ chatId:chatId });
+bot.on("message", onStart() (msg) => {
+	bot.sendMessage(chatId, `Assolomu aleykum ${firstName} botimizga xush kelibsiz 👋
+    Bizning botimizda siz 100x Academy xaqida ma'lumot olishingiz,
+	kurslarni korip-chikishingiz va royhatdan otishingiz mumkin 😎`)
+})
 
 
-	if (existingUser == null) {
-		const newUser = new User({
-			chatId : chatId,
-			firstname : firstname,
-			username : msg.chat.username,
-		})
-	
-
-		newUser.save();
-	
-	}
- 	
-	console.log(existingUser);
-	bot.sendMessage(chatId, `Assolomu Aleykum, ${firstname}`)
-	
-}
-
-export default onStart;
+export default onStart(msg)
