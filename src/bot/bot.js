@@ -1,7 +1,6 @@
 import { config } from 'dotenv'
 import TelegramBot from 'node-telegram-bot-api'
 // import onProfile from "./handlers/onProfile.js"
-import onStart from "./handlers/onStart.js"
 
 config();
 
@@ -13,9 +12,14 @@ bot.on("message", async (msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
   const firstName = msg.chat.first_name;
+bot.sendMessage(chatId, {
+    text: "Hello"
+})
+  // if (text == "/start") {
+  //   return onStart(chatId, firstName)
+  // };
+  // if (text == "/onKurs") {
+  //   return onKurs(chatId, firstName)
+  // }
 
-  // start uchun handler
-  if (text == "/start") {
-    return onStart(msg);
-  }
-
+})

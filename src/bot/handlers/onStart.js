@@ -1,11 +1,15 @@
-import User from '../../models/USer.js'
-import { bot } from "../bot.js"
+// import { bot } from "../bot.js"
 
-bot.on("message", onStart() (msg) => {
-	bot.sendMessage(chatId, `Assolomu aleykum ${firstName} botimizga xush kelibsiz 👋
-    Bizning botimizda siz 100x Academy xaqida ma'lumot olishingiz,
-	kurslarni korip-chikishingiz va royhatdan otishingiz mumkin 😎`)
-})
+// async function onStart(chatId, firstName) {
+// 	bot.sendMessage(
+// 		chatId,  `👋 Assolomu aleykum ${firstName}!
+// 	📚 Bizning o'qv mazkazga xush kelibsiz!
+// 	Bu bot orqali siz:
+// 	• Kurslarimiz xaqida batafsil ma'lumot olishingiz,
+// 	• Kurslarga onlayn ro'yhatdan otishingiz mumkin, 
+// 	• Dars jadvali va to'lovlar haqida ma'lumot olasiz
+	
+// 	Davom etish uchun pastdan menyuga kiring 😎`,
+// )}
+// export { onStart }
 
-
-export default onStart(msg)
